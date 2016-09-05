@@ -1,0 +1,49 @@
+{
+  "name": "ngcar",
+  "version": "1.0.0",
+  "description": "interactive car map with angularjs",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "webpack-dev-server",
+    "bundle": "cp src/index.html dist/ & webpack -p ./dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "angularjs",
+    "webpack",
+    "es6",
+    "interactive",
+    "imagemap",
+    "car"
+  ],
+  "author": "Oscar Diaz <odiaz@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "git@github.com:thinkblue36/ngCar/issues"
+  },
+  "homepage": "git@github.com:thinkblue36/ngCar",
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-aria": "1.5.8",
+    "angular-material": "1.1.0",
+    "babel-core": "6.5.2",
+    "babel-loader": "6.2.3",
+    "babel-preset-es2015": "6.5.0",
+    "babel-preset-stage-1": "6.5.0",
+    "css-loader": "0.23.1",
+    "expose-loader": "0.7.1",
+    "jquery": "2.2.4",
+    "node-sass": "3.4.2",
+    "raw-loader": "0.5.1",
+    "style-loader": "0.13.0",
+    "sass-loader": "4.0.0",
+    "webpack": "1.12.13",
+    "webpack-dev-server": "1.14.1"
+  }
+}

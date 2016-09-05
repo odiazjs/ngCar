@@ -1,0 +1,25 @@
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+      <form name="userForm">
+        <md-input-container>
+        <label>Title</label>
+        <input ng-model="user.title">
+      </md-input-container>
+      <md-input-container>
+        <label>Email</label>
+        <input ng-model="user.email" type="email">
+      </md-input-container>
+      </form>
+    </div>
+</md-content>
+
+<div class="container md-whiteframe-0dp">
+    <md-content class="md-padding md-whiteframe-0dp" layout-xs="column" layout="row">
+        <md-card class="md-whiteframe-0dp">
+            <img ng-src="https://s16.postimg.org/bxcz9r1yd/ngcarside.png" class="md-card-image" id="car" usemap="#car-map">
+                <map name="car-map" ng-click="ctrl.areaClick()">
+                    <area alt="LFdoor" title="LFdoor" name="Car" href="#" coords="236,164,245,140,435,126,429,150,429,253,241,261" shape="poly">
+                </map>
+        </md-card>
+    </md-content>
+</div>
