@@ -5,11 +5,15 @@ let _$rootScope
 export class ContentCtrl {
 
     constructor (contentFactory, $rootScope) {
+
         this.contentFactory = contentFactory()
         _$rootScope         = $rootScope
 
+        this.car = this.contentFactory.onViewChange({ view: 'front' })
+
         _$rootScope.$on('onViewChange:Event', (event, option) => {
-            this.contentFactory.onViewChange(option)
+            this.car = this.contentFactory.onViewChange(option)
+            $('img[usemap]').rwdImageMaps();
         })
 
     }

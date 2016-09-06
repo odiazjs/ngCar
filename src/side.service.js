@@ -9,21 +9,24 @@ export class SideNavService {
     getOptions () {
 
         return [
+
             {
                 id: 1,
-                view: 'sideview',
-                img: 'https://s18.postimg.org/im6m00rrd/carside.png',
-                bgcolor: { 'background-color': '#bbf5cb' }
-            },
-            {
-                id: 2,
-                view: 'frontview',
+                view: 'front',
                 img: 'https://s17.postimg.org/8jtrdq7tr/carfront.png',
                 bgcolor: { 'background-color': '#fedfb5' }
             },
+
+            {
+                id: 2,
+                view: 'side',
+                img: 'https://s18.postimg.org/im6m00rrd/carside.png',
+                bgcolor: { 'background-color': '#bbf5cb' }
+            },
+            
             {
                 id: 3,
-                view: 'rearview',
+                view: 'rear',
                 img: 'https://s18.postimg.org/7ffgnjyrt/carback.png',
                 bgcolor: { 'background-color': '#84d8fd' }
             }

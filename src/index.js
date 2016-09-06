@@ -13,9 +13,11 @@ import 'content.directive'
 
 //Services
 import 'side.service'
+import 'car.service'
 
 //Factories
 import 'option.factory'
 import 'content.factory'
+import 'car.factory'
 
 angular.bootstrap(document, ['ngCar'])

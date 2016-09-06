@@ -1,17 +1,33 @@
 import _module from './module'
 
+let _carService
+
 export default class ContentFactory {
     
     constructor () {
-        this.view   = 'frontview'
+        this.view = 'front'
     }
 
     onViewChange (option) {
         this.view = option.view
+        return this.getCarByView(this.view)
     }
 
-    static factory () {
-        return (_$scope) => new ContentFactory(_$scope)
+    getCarByView (view) {
+
+        return _carService
+                .getAll()
+                .filter((car) => { 
+                    return car.view === view 
+                })[0]
+
+    }
+
+    static factory (carService) {
+
+        _carService = carService
+        return () => new ContentFactory()
+
     }
 }
 
