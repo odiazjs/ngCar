@@ -1,12 +1,15 @@
 import _module from './module'
 
+let _$rootScope
 
 export class SideCtrl {
 
-    constructor (sideNavService, optionFactory) {
+    constructor (sideNavService, optionFactory, contentFactory, $rootScope) {
 
         this.sideNavService = sideNavService
         this.optionFactory  = optionFactory
+        this.contentFactory = contentFactory()
+        _$rootScope         = $rootScope
 
         this.options = 
             this.sideNavService.getOptions()
@@ -20,6 +23,9 @@ export class SideCtrl {
             .reduce((boolean, item) => {
                 item.selected = false, option.selected = true
             }, false)
+
+        _$rootScope.$broadcast('onViewChange:Event', option)
+              
     }
 
 }

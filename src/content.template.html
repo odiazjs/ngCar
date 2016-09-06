@@ -15,11 +15,33 @@
 
 <div class="container md-whiteframe-0dp">
     <md-content class="md-padding md-whiteframe-0dp" layout-xs="column" layout="row">
-        <md-card class="md-whiteframe-0dp">
-            <img ng-src="https://s16.postimg.org/bxcz9r1yd/ngcarside.png" class="md-card-image" id="car" usemap="#car-map">
-                <map name="car-map" ng-click="ctrl.areaClick()">
-                    <area alt="LFdoor" title="LFdoor" name="Car" href="#" coords="236,164,245,140,435,126,429,150,429,253,241,261" shape="poly">
-                </map>
+        <md-card class="md-whiteframe-0dp" ng-if="ctrl.contentFactory.view == 'sideview'">
+            <img ng-src="https://s18.postimg.org/jnh06ham1/ngcarside.png" class="md-card-image" id="car-side" usemap="#car-map-side">
+            <map name="car-map-side" ng-click="ctrl.areaClick()">
+                <area alt="LFdoor" title="LFdoor"  href="#" coords="205,94,195,131,205,187,353,183,352,124,352,97,360,77,271,83" shape="poly">
+                <area alt="LFwheel" title="LFwheel"  href="#" coords="125,183,53" shape="circle">
+                <area alt="LBwheel" title="LBwheel"  href="#" coords="523,180,47" shape="circle">
+                <area alt="LBdoor" title="LBdoor"  href="#" coords="362,79,356,94,356,178,450,185,478,124,497,86,499,71" shape="poly">
+                <area alt="LFwindow" title="LFwindow"  href="#" coords="201,85,257,48,298,30,360,24,353,73" shape="poly">
+                <area alt="LBwindow" title="LBwindow"  href="#" coords="374,22,367,68,536,69,501,44,435,23" shape="poly">
+                <area alt="LFpanel" title="LFpanel"  href="#" coords="48,133,76,145,102,128,131,122,152,130,171,143,187,181,200,181,192,132,198,93,139,95,91,101,61,118" shape="poly">
+                <area alt="LBpanel" title="LBpanel"  href="#" coords="460,173,478,136,513,121,552,124,620,117,599,94,580,78,544,72,508,73" shape="poly">
+                <area alt="LFbumper" title="LFbumper"  href="#" coords="13,149,10,184,21,193,62,200,69,150,48,138" shape="poly">
+                <area alt="LBbumper" title="LBbumper"  href="#" coords="561,129,582,161,582,184,642,165,646,153,645,125,624,118" shape="poly">
+            </map>
+        </md-card>
+        <md-card class="md-whiteframe-0dp" ng-if="ctrl.contentFactory.view == 'frontview'">
+            <img ng-src="https://s21.postimg.org/nvvthpv53/ngcarfront.png" class="md-card-image" id="car-front" usemap="#car-map-front">
+            <map name="car-map-front" ng-click="ctrl.areaClick()">
+                <area target="" alt="windshield" title="windshield"  href="#" coords="67,65,76,38,97,16,182,11,266,15,286,36,300,64" shape="poly">
+                <area target="" alt="leftrearview" title="leftrearview"  href="#" coords="55,69,53,52,22,53,24,68,48,76" shape="poly">
+                <area target="" alt="rightrearview" title="rightrearview"  href="#" coords="313,65,316,53,345,50,345,65,317,74" shape="poly">
+                <area target="" alt="hood" title="hood"  href="#" coords="61,72,35,92,28,111,86,124,120,128,250,129,288,122,340,110,328,82,302,71" shape="poly">
+                <area target="" alt="leftlight" title="leftlight"  href="#" coords="15,132,17,109,25,114,75,128,92,157" shape="poly">
+                <area target="" alt="rightlight" title="rightlight"  href="#" coords="279,153,288,125,340,114,350,107,357,132" shape="poly">
+                <area target="" alt="grill" title="grill"  href="#" coords="115,158,101,135,122,135,239,134,272,130,256,156,185,165" shape="poly">
+                <area target="" alt="frontbumper" title="frontbumper"  href="#" coords="11,140,118,168,264,167,357,137,359,198,354,228,285,229,93,230,14,228,9,190" shape="poly">
+            </map>
         </md-card>
     </md-content>
 </div>

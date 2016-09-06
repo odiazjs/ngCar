@@ -6,7 +6,7 @@ _module.directive('contentSection', function ($timeout) {
 
     return {
         restrict: 'AE',
-        scope: true,
+        scope: {},
         controllerAs: 'ctrl',
         bindToController: true,
         template: template,

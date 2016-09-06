@@ -16,5 +16,6 @@ import 'side.service'
 
 //Factories
 import 'option.factory'
+import 'content.factory'
 
 angular.bootstrap(document, ['ngCar'])

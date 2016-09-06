@@ -6,7 +6,7 @@ export default class OptionFactory {
         
         this.id       = model.id
         this.selected = false
-        this.display  = model.display
+        this.view     = model.view
         this.img      = model.img
         this.bgcolor  = model.bgcolor
 
