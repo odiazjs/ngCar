@@ -19,6 +19,7 @@ _module.directive('contentSection', function ($timeout) {
             $('img[usemap]').rwdImageMaps();
             console.log('ajustado!')
 
+            // TODO: this messes up the responsive rwdImageMaps
             // $('#car').mapster({
             //     staticState: true,
             //     fillOpacity: 0.4,

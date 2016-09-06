@@ -1,15 +1,37 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="100" layout="column">
-      <form name="userForm">
-        <md-input-container>
-        <label>Title</label>
-        <input ng-model="user.title">
+      <label>Componente</label>
+      <md-input-container>
+          <label>{{ctrl.car.component.name}}</label>
+          <br/>
       </md-input-container>
       <md-input-container>
-        <label>Email</label>
-        <input ng-model="user.email" type="email">
-      </md-input-container>
-      </form>
+          <label>Sub-Componente</label>
+          <md-select ng-model="ctrl.subComponent">
+            <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                       ng-value="subComponent.name">
+              {{subComponent.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label>Tipo Lista</label>
+          <md-select ng-model="ctrl.damageType">
+            <md-option ng-repeat="damageType in ctrl.damageTypes" 
+                       ng-value="damageType.name">
+              {{damageType.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container>
+          <label>Accion</label>
+          <md-select ng-model="ctrl.action">
+            <md-option ng-repeat="action in ctrl.actions" 
+                       ng-value="action.name">
+              {{action.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
     </div>
 </md-content>
 
@@ -17,8 +39,9 @@
     <md-content class="md-padding md-whiteframe-0dp" layout-xs="column" layout="row">
         <md-card class="md-whiteframe-0dp">
             <img ng-src="{{ctrl.car.image.url}}" class="md-ctrl.card-image" id="{{ctrl.car.image.id}}" usemap="{{ctrl.car.image.usemap}}">
-            <map name="{{ctrl.car.map.name}}" ng-click="ctrl.areaClick()">
+            <map name="{{ctrl.car.map.name}}">
                 <area ng-repeat="area in ctrl.car.map.areas"
+                      ng-click="ctrl.areaClick(area)"
                       alt="{{area.alt}}" 
                       title="{{area.title}}"  
                       href="#" 

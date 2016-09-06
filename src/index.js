@@ -14,6 +14,7 @@ import 'content.directive'
 //Services
 import 'side.service'
 import 'car.service'
+import 'order.detail.service'
 
 //Factories
 import 'option.factory'

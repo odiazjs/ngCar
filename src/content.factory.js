@@ -1,6 +1,6 @@
 import _module from './module'
 
-let _carService
+let _carService, _orderDetailService
 
 export default class ContentFactory {
     
@@ -23,9 +23,41 @@ export default class ContentFactory {
 
     }
 
-    static factory (carService) {
+    getComponentByArea (area) {
 
-        _carService = carService
+        let component =
+            _orderDetailService
+                .getComponents()
+                    .filter((component) => { 
+                        return component.areaId === area.title 
+                    })[0]
+
+        component.subComponents = 
+            _orderDetailService
+                .getSubComponents()
+                    .filter((subComponent) => {
+                        return subComponent.componentId === component.id
+                    })
+
+        return component
+                
+    }
+
+    getDamageTypes () {
+        return _orderDetailService
+                    .getDamageTypes()
+    }
+
+    getActions () {
+        return _orderDetailService
+                    .getActions()
+    }
+
+    static factory (carService, orderDetailService) {
+
+        _carService         = carService
+        _orderDetailService = orderDetailService
+
         return () => new ContentFactory()
 
     }

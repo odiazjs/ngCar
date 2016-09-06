@@ -3,7 +3,7 @@ import _module from './module'
 export class HeaderCtrl {
 
     constructor () {
-        this.greeting = 'asdfasdf'
+        this.greeting = 'Interactive Car'
     }
 
 }

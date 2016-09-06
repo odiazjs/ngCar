@@ -16,10 +16,22 @@ export class ContentCtrl {
             $('img[usemap]').rwdImageMaps();
         })
 
+        this.damageTypes = this.contentFactory.getDamageTypes()
+        this.actions     = this.contentFactory.getActions()
+        
     }
 
-    areaClick () {
-        console.log('car part selected')
+    areaClick (area) {
+        
+        console.log('car part selected => ', area)
+        this.subComponent  = {}
+        this.car.component.subComponents = []
+        this.car.component = this.contentFactory.getComponentByArea(area)
+
+    }
+
+    selectSubComponent (subComponent) {
+        this.subComponent = subComponent
     }
 
 }
