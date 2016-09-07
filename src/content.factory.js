@@ -10,10 +10,10 @@ export default class ContentFactory {
 
     onViewChange (option) {
         this.view = option.view
-        return this.getCarByView(this.view)
+        return this.filterCarByView(this.view)
     }
 
-    getCarByView (view) {
+    filterCarByView (view) {
 
         return _carService
                 .getAll()
@@ -21,36 +21,6 @@ export default class ContentFactory {
                     return car.view === view 
                 })[0]
 
-    }
-
-    getComponentByArea (area) {
-
-        let component =
-            _orderDetailService
-                .getComponents()
-                    .filter((component) => { 
-                        return component.areaId === area.title 
-                    })[0]
-
-        component.subComponents = 
-            _orderDetailService
-                .getSubComponents()
-                    .filter((subComponent) => {
-                        return subComponent.componentId === component.id
-                    })
-
-        return component
-                
-    }
-
-    getDamageTypes () {
-        return _orderDetailService
-                    .getDamageTypes()
-    }
-
-    getActions () {
-        return _orderDetailService
-                    .getActions()
     }
 
     static factory (carService, orderDetailService) {

@@ -1,37 +1,43 @@
 import _module from './module'
 
-let _$rootScope
+let _$rootScope, _orderDetailService
 
 export class ContentCtrl {
 
-    constructor (contentFactory, $rootScope) {
+    constructor (contentFactory, orderDetailService, $rootScope) {
 
         this.contentFactory = contentFactory()
+        _orderDetailService = orderDetailService
         _$rootScope         = $rootScope
 
         this.car = this.contentFactory.onViewChange({ view: 'front' })
 
         _$rootScope.$on('onViewChange:Event', (event, option) => {
+            this.clearState()
             this.car = this.contentFactory.onViewChange(option)
             $('img[usemap]').rwdImageMaps();
         })
 
-        this.damageTypes = this.contentFactory.getDamageTypes()
-        this.actions     = this.contentFactory.getActions()
+        this.damageTypes = _orderDetailService.getDamageTypes()
+        this.actions     = _orderDetailService.getActions()
         
     }
 
     areaClick (area) {
-        
-        console.log('car part selected => ', area)
-        this.subComponent  = {}
-        this.car.component.subComponents = []
-        this.car.component = this.contentFactory.getComponentByArea(area)
+
+        console.log(area)
+        this.clearState()
+        this.car.component = _orderDetailService.getComponentByArea(area)
 
     }
 
     selectSubComponent (subComponent) {
         this.subComponent = subComponent
+    }
+
+    clearState () {
+        this.subComponent  = {}
+        this.car.component.subComponents = []
     }
 
 }

@@ -16,6 +16,8 @@ export class SideCtrl {
                 .map((option) => {
                     return this.optionFactory(option)
                 })
+
+        this.options[0].selected = true
     }
 
     onMdListClick (option) {

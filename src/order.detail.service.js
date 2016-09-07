@@ -23,9 +23,36 @@ export class OrderDetailService {
             new Component(7, 'LFwheel', 'Llanta Frontal', [], {}, {}),
             new Component(8, 'LBwheel', 'Llanta Trasera', [], {}, {}),
             new Component(9, 'LFwindow', 'Ventana Frontal', [], {}, {}),
-            new Component(10, 'LBwindow', 'Ventana Trasera', [], {}, {})
+            new Component(10, 'LBwindow', 'Ventana Trasera', [], {}, {}),
+            new Component(11, 'windshield', 'Windshield', [], {}, {}),
+            new Component(12, 'leftrearview', 'Retrovisor Izquierdo', [], {}, {}),
+            new Component(13, 'rightrearview', 'Retrovisor Derecho', [], {}, {}),
+            new Component(14, 'hood', 'Capo', [], {}, {}),
+            new Component(15, 'leftlight', 'Luz Izquierda', [], {}, {}),
+            new Component(16, 'rightlight', 'Luz Derecha', [], {}, {}),
+            new Component(17, 'grill', 'Parrilla', [], {}, {}),
+            new Component(18, 'frontbumper', 'Bumper Frontal', [], {}, {}),
         ]
 
+    }
+
+    getComponentByArea (area) {
+
+        let component =
+            this.getComponents()
+                    .filter((component) => { 
+                        return component.areaId === area.title 
+                    })[0]
+                
+
+        component.subComponents = 
+            this.getSubComponents()
+                    .filter((subComponent) => {
+                        return subComponent.componentId === component.id
+                    })
+                
+        return component
+                
     }
 
     getSubComponents () {
@@ -39,13 +66,20 @@ export class OrderDetailService {
             new SubComponent(3, 5, 'Luz'),
             new SubComponent(4, 5, 'Guarda Polvo'),
             new SubComponent(3, 6, 'Luz'),
-            new SubComponent(3, 6, 'Luz'),
             new SubComponent(5, 7, 'Aro'),
             new SubComponent(5, 8, 'Aro'),
             new SubComponent(6, 7, 'Plato'),
             new SubComponent(6, 8, 'Plato'),
             new SubComponent(7, 7, 'Chuchos'),
-            new SubComponent(7, 8, 'Chuchos')
+            new SubComponent(7, 8, 'Chuchos'),
+            new SubComponent(8, 15, 'Pide vias'),
+            new SubComponent(9, 15, 'Luz'),
+            new SubComponent(8, 16, 'Pide vias'),
+            new SubComponent(9, 16, 'Luz'),
+            new SubComponent(10, 17, 'Insigna'),
+            new SubComponent(11, 18, 'Parrilla Izquierda'),
+            new SubComponent(12, 18, 'Parrilla Derecha'),
+            new SubComponent(13, 18, 'Parrilla Central'),
         ]
 
     }
