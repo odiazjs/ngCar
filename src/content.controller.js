@@ -1,6 +1,6 @@
 import _module from './module'
 
-let _$rootScope, _orderDetailService
+let _$rootScope, _orderDetailService, carMap
 
 export class ContentCtrl {
 
@@ -10,10 +10,10 @@ export class ContentCtrl {
         _orderDetailService = orderDetailService
         _$rootScope         = $rootScope
 
-        this.car = this.contentFactory.onViewChange({ view: 'front' })
+        this.map = new Object()
+        this.car = this.contentFactory.onViewChange({ view: 'side' })
 
-        _$rootScope.$on('onViewChange:Event', (event, option) => {
-            this.clearState()
+        _$rootScope.$on('onViewChange:Event', (event, option) => {           
             this.car = this.contentFactory.onViewChange(option)
             $('img[usemap]').rwdImageMaps();
         })
@@ -25,9 +25,17 @@ export class ContentCtrl {
 
     areaClick (area) {
 
-        console.log(area)
-        this.clearState()
         this.car.component = _orderDetailService.getComponentByArea(area)
+
+        if (this.map) {
+            carMap = this.map[this.car.component.id]
+        }
+
+        if (carMap) {
+            this.car.component = carMap.component
+        }
+
+        this.saveData(this.car)
 
     }
 
@@ -35,9 +43,9 @@ export class ContentCtrl {
         this.subComponent = subComponent
     }
 
-    clearState () {
-        this.subComponent  = {}
-        this.car.component.subComponents = []
+    saveData (car) {
+        this.map[this.car.component.id] = new Object({component: car.component})
+        console.log(this.map[this.car.component.id])
     }
 
 }

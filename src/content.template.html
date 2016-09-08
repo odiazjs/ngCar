@@ -7,27 +7,30 @@
       </md-input-container>
       <md-input-container>
           <label>Sub-Componente</label>
-          <md-select ng-model="ctrl.subComponent">
+          <md-select ng-model="ctrl.car.component.subComponent"
+                     ng-change="ctrl.saveData(ctrl.car)">
             <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
-                       ng-value="subComponent.name">
+                       ng-value="subComponent">
               {{subComponent.name}}
             </md-option>
           </md-select>
         </md-input-container>
         <md-input-container>
           <label>Tipo Lista</label>
-          <md-select ng-model="ctrl.damageType">
+          <md-select ng-model="ctrl.car.component.damageType"
+                     ng-change="ctrl.saveData(ctrl.car)">
             <md-option ng-repeat="damageType in ctrl.damageTypes" 
-                       ng-value="damageType.name">
+                       ng-value="damageType">
               {{damageType.name}}
             </md-option>
           </md-select>
         </md-input-container>
         <md-input-container>
           <label>Accion</label>
-          <md-select ng-model="ctrl.action">
+          <md-select ng-model="ctrl.car.component.action"
+                     ng-change="ctrl.saveData(ctrl.car)">
             <md-option ng-repeat="action in ctrl.actions" 
-                       ng-value="action.name">
+                       ng-value="action">
               {{action.name}}
             </md-option>
           </md-select>

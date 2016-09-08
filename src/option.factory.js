@@ -5,7 +5,7 @@ export default class OptionFactory {
     constructor (model) {
         
         this.id       = model.id
-        this.selected = false
+        this.selected = model.view === 'side'
         this.view     = model.view
         this.img      = model.img
         this.bgcolor  = model.bgcolor
