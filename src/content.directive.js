@@ -20,7 +20,7 @@ _module.directive('contentSection', function ($timeout) {
             console.log('ajustado!')
 
             // TODO: this messes up the responsive rwdImageMaps
-            // $('#car').mapster({
+            // $('#car-side').mapster({
             //     staticState: true,
             //     fillOpacity: 0.4,
             //     fillColor: 'fadbb84',
@@ -30,7 +30,7 @@ _module.directive('contentSection', function ($timeout) {
             //     scaleMap: false,
             //     toolTipClose: ["tooltip-click","area-mouseout"],
             //     areas: [{
-            //         key: 'Car',
+            //         key: 'LFdoor',
             //         toolTip: 'Puerta frontal lado izquierdo.'
             //     }],                   
             //     onClick: function (e) {

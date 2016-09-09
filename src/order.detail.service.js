@@ -4,10 +4,13 @@ import SubComponent from './subcomponent'
 import Action from './action'
 import DamageType from './damageType'
 
+let _$http
+
 export class OrderDetailService {
 
-    constructor () {
-        
+    constructor ($http) {
+        _$http = $http
+        this.baseUrl = 'http://gdsgt.net/jonasa'
     }
 
     getComponents () {
@@ -109,6 +112,27 @@ export class OrderDetailService {
             new Action(6, 'Servicio')
         ]
 
+    }
+
+    getCategories () {
+        const url = `${this.baseUrl}${'/categoria/apiLista'}`
+        return _$http.get(url)
+    }
+
+    getBrands () {
+        const url = `${this.baseUrl}${'/marca/apiLista'}`
+        return _$http.get(url)
+    }
+
+    getModelByBrand (brandId) {
+        const url = `${this.baseUrl}${'/modelo/apiLista?'}${'modelo='}${brandId}`
+        return _$http.get(url)
+    }
+
+    getReplacements (categoryId, brandId, modelId) {
+        const url = `${this.baseUrl}${'/stock_producto/apiRepuestoPrecio?'}
+            ${'categoria='}${categoryId}${'marca='}${brandId}${'modelo='}${modelId}`
+        return _$http.get(url)
     }
 
 }

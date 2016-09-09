@@ -6,6 +6,7 @@ export class ContentCtrl {
 
     constructor (contentFactory, orderDetailService, $rootScope) {
 
+        this.loading = true
         this.contentFactory = contentFactory()
         _orderDetailService = orderDetailService
         _$rootScope         = $rootScope
@@ -20,22 +21,22 @@ export class ContentCtrl {
 
         this.damageTypes = _orderDetailService.getDamageTypes()
         this.actions     = _orderDetailService.getActions()
-        
+        this.getFilters()
     }
 
     areaClick (area) {
 
         this.car.component = _orderDetailService.getComponentByArea(area)
 
-        if (this.map) {
-            carMap = this.map[this.car.component.id]
+        if (this.contentFactory.map) {
+            carMap = this.contentFactory.map.get(this.car.component.id)
         }
 
         if (carMap) {
             this.car.component = carMap.component
         }
 
-        this.saveData(this.car)
+        this.contentFactory.memoizeData(this.car)
 
     }
 
@@ -43,9 +44,28 @@ export class ContentCtrl {
         this.subComponent = subComponent
     }
 
-    saveData (car) {
-        this.map[this.car.component.id] = new Object({component: car.component})
-        console.log(this.map[this.car.component.id])
+    getFilters () {
+
+        let getCategories = _orderDetailService.getCategories()
+        let getBrands     = _orderDetailService.getBrands()
+
+        Promise.all([getCategories, getBrands]).then(response => { 
+            
+            setTimeout(() => {
+
+                this.categories = response[0].data
+                this.brands = response[1].data
+                this.loading = false
+                _$rootScope.$apply()
+
+            }, 1000)
+            
+
+        }, error => {
+            alert('No se puedieron obtener los filtros (categoria, marca)' 
+                + JSON.stringify(error))
+        })
+
     }
 
 }

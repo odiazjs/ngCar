@@ -35,6 +35,30 @@
             </md-option>
           </md-select>
         </md-input-container>
+        <md-input-container>
+          <label>Categorias</label>
+          <md-select ng-model="ctrl.car.component.category"
+                     ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="category in ctrl.categories" 
+                       ng-value="category">
+              {{category.Nombre}}
+            </md-option>
+          </md-select>
+          <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+          </md-progress-linear>
+        </md-input-container>
+        <md-input-container>
+          <label>Marca</label>
+          <md-select ng-model="ctrl.car.component.brand"
+                     ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="brand in ctrl.brands" 
+                       ng-value="brand">
+              {{brand.Nombre}}
+            </md-option>
+          </md-select>
+          <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+          </md-progress-linear>
+        </md-input-container>
     </div>
 </md-content>
 
@@ -46,6 +70,7 @@
                 <area ng-repeat="area in ctrl.car.map.areas"
                       ng-click="ctrl.areaClick(area)"
                       alt="{{area.alt}}" 
+                      name="{{area.title}}"
                       title="{{area.title}}"  
                       href="#" 
                       coords="{{area.coords}}" 
