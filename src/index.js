@@ -1,24 +1,24 @@
 import angular from 'angular'
 import _module from 'module'
 
-import SideCtrl from 'side.controller'
-import 'side.directive'
+import SideCtrl from 'controllers/side.controller'
+import 'directives/side.directive'
 
-import HeaderCtrl from 'header.controller'
-import 'header.directive'
+import HeaderCtrl from 'controllers/header.controller'
+import 'directives/header.directive'
 import 'app.scss'
 
-import ContentCtrl from 'content.controller'
-import 'content.directive'
+import ContentCtrl from 'controllers/content.controller'
+import 'directives/content.directive'
 
 //Services
-import 'side.service'
-import 'car.service'
-import 'order.detail.service'
+import 'services/side.service'
+import 'services/car.service'
+import 'services/order.detail.service'
 
 //Factories
-import 'option.factory'
-import 'content.factory'
-import 'car.factory'
+import 'factories/option.factory'
+import 'factories/content.factory'
+import 'factories/car.factory'
 
 angular.bootstrap(document, ['ngCar'])

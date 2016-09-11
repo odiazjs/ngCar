@@ -1,0 +1,47 @@
+import _module from 'module'
+import template from './content.template.html'
+
+_module.directive('contentSection', function ($timeout) {
+    'ngInject'
+
+    return {
+        restrict: 'AE',
+        scope: {},
+        controllerAs: 'ctrl',
+        bindToController: true,
+        template: template,
+        controller: 'ContentCtrl',
+
+        link : (scope, el, attrs) => {
+
+            $timeout(() => {
+
+            $('img[usemap]').rwdImageMaps();
+            console.log('ajustado!')
+
+            // TODO: this messes up the responsive rwdImageMaps
+            // $('#car-side').mapster({
+            //     staticState: true,
+            //     fillOpacity: 0.4,
+            //     fillColor: 'fadbb84',
+            //     highlight: true,
+            //     mapKey: 'name',
+            //     showToolTip: true,
+            //     scaleMap: false,
+            //     toolTipClose: ["tooltip-click","area-mouseout"],
+            //     areas: [{
+            //         key: 'LFdoor',
+            //         toolTip: 'Puerta frontal lado izquierdo.'
+            //     }],                   
+            //     onClick: function (e) {
+                    
+            //     }
+            // });
+
+            }, 0)
+
+            
+            
+        }
+    }
+})
