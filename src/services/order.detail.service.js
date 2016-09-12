@@ -47,10 +47,6 @@ export class OrderDetailService {
                 .filter((component) => { 
                     return component.areaId === (area.title || area.areaId) 
                 })[0]
-                
-        if (!component) {
-            return
-        }
 
         component.subComponents = 
             this.getSubComponents()

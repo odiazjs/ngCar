@@ -24,12 +24,12 @@ export class SideNavService {
                 bgcolor: { 'background-color': '#bbf5cb' }
             },
             
-            {
-                id: 3,
-                view: 'rear',
-                img: 'https://s18.postimg.org/7ffgnjyrt/carback.png',
-                bgcolor: { 'background-color': '#84d8fd' }
-            }
+            // {
+            //     id: 3,
+            //     view: 'rear',
+            //     img: 'https://s18.postimg.org/7ffgnjyrt/carback.png',
+            //     bgcolor: { 'background-color': '#84d8fd' }
+            // }
         ]
 
     }
