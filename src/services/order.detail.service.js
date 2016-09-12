@@ -18,24 +18,24 @@ export class OrderDetailService {
 
         return [
 
-            new Component(1, 'LFdoor', 'Puerta Frontal', [], {}, {}),
-            new Component(2, 'LBdoor', 'Puerta Trasera', [], {}, {}),
-            new Component(3, 'LFpanel', 'Panel Frontal', [], {}, {}),
-            new Component(4, 'LBpanel', 'Panel Trasero', [], {}, {}),
-            new Component(5, 'LFbumper', 'Bumper Frontal', [], {}, {}),
-            new Component(6, 'LBbumper', 'Bumper Trasero', [], {}, {}),
-            new Component(7, 'LFwheel', 'Llanta Frontal', [], {}, {}),
-            new Component(8, 'LBwheel', 'Llanta Trasera', [], {}, {}),
-            new Component(9, 'LFwindow', 'Ventana Frontal', [], {}, {}),
-            new Component(10, 'LBwindow', 'Ventana Trasera', [], {}, {}),
-            new Component(11, 'windshield', 'Windshield', [], {}, {}),
-            new Component(12, 'leftrearview', 'Retrovisor Izquierdo', [], {}, {}),
-            new Component(13, 'rightrearview', 'Retrovisor Derecho', [], {}, {}),
-            new Component(14, 'hood', 'Capo', [], {}, {}),
-            new Component(15, 'leftlight', 'Luz Izquierda', [], {}, {}),
-            new Component(16, 'rightlight', 'Luz Derecha', [], {}, {}),
-            new Component(17, 'grill', 'Parrilla', [], {}, {}),
-            new Component(18, 'frontbumper', 'Bumper Frontal', [], {}, {}),
+            new Component(1, 'LFdoor', 'Puerta Frontal', [], {}, {}, 'side'),
+            new Component(2, 'LBdoor', 'Puerta Trasera', [], {}, {}, 'side'),
+            new Component(3, 'LFpanel', 'Panel Frontal', [], {}, {}, 'side'),
+            new Component(4, 'LBpanel', 'Panel Trasero', [], {}, {}, 'side'),
+            new Component(5, 'LFbumper', 'Bumper Frontal', [], {}, {}, 'side'),
+            new Component(6, 'LBbumper', 'Bumper Trasero', [], {}, {}, 'side'),
+            new Component(7, 'LFwheel', 'Llanta Frontal', [], {}, {}, 'side'),
+            new Component(8, 'LBwheel', 'Llanta Trasera', [], {}, {}, 'side'),
+            new Component(9, 'LFwindow', 'Ventana Frontal', [], {}, {}, 'side'),
+            new Component(10, 'LBwindow', 'Ventana Trasera', [], {}, {}, 'side'),
+            new Component(11, 'windshield', 'Windshield', [], {}, {}, 'front'),
+            new Component(12, 'leftrearview', 'Retrovisor Izquierdo', [], {}, {}, 'front'),
+            new Component(13, 'rightrearview', 'Retrovisor Derecho', [], {}, {}, 'front'),
+            new Component(14, 'hood', 'Capo', [], {}, {}, 'front'),
+            new Component(15, 'leftlight', 'Luz Izquierda', [], {}, {}, 'front'),
+            new Component(16, 'rightlight', 'Luz Derecha', [], {}, {}, 'front'),
+            new Component(17, 'grill', 'Parrilla', [], {}, {}, 'front'),
+            new Component(18, 'frontbumper', 'Bumper Frontal', [], {}, {}, 'front'),
         ]
 
     }
@@ -45,9 +45,12 @@ export class OrderDetailService {
         let component =
             this.getComponents()
                 .filter((component) => { 
-                    return component.areaId === area.title 
+                    return component.areaId === (area.title || area.areaId) 
                 })[0]
                 
+        if (!component) {
+            return
+        }
 
         component.subComponents = 
             this.getSubComponents()

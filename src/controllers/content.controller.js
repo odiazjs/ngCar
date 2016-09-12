@@ -1,4 +1,5 @@
 import _module from 'module'
+import _ from 'lodash'
 
 let _$rootScope, _orderDetailService, carMap
 
@@ -10,7 +11,6 @@ export class ContentCtrl {
         _$rootScope         = $rootScope
         this.loading        = true
         this.contentFactory = contentFactory()
-        this.map            = new Object()
         this.car            = this.contentFactory.onViewChange({ view: 'side' })
         this.damageTypes    = _orderDetailService.getDamageTypes()
         this.actions        = _orderDetailService.getActions()
@@ -28,14 +28,14 @@ export class ContentCtrl {
         this.car.component = _orderDetailService.getComponentByArea(area)
 
         if (this.contentFactory.map) {
-            carMap = this.contentFactory.map.get(this.car.component.id)
+            carMap = this.contentFactory.map[this.car.component.id]
         }
 
         if (carMap) {
             this.car.component = carMap.component
         }
 
-        this.contentFactory.memoizeData(this.car)
+        this.contentFactory.cacheSave(this.car)
 
     }
 
@@ -45,27 +45,24 @@ export class ContentCtrl {
 
     getAsyncFilters () {
 
-        _orderDetailService.getAsyncFilters()
-            .then(response => { 
-            
-                this.categories = response[0].data
-                this.brands = response[1].data
-                this.loading = false
-                _$rootScope.$apply()
+        _orderDetailService.getAsyncFilters().then(response => { 
+
+            this.categories = response[0].data
+            this.brands = response[1].data
+            this.loading = false
+            _$rootScope.$apply()
 
             }, error => {
                 alert('No se puedieron obtener los filtros (categoria, marca)' 
                     + JSON.stringify(error))
-        })
 
+        })
     }
 
     getMakeYearByBrand (brand) {
-        _orderDetailService
-            .getMakeYearByBrand(brand.Id)
-            .then((response) => {
-                this.makeYears = response.data
-            })
+        _orderDetailService.getMakeYearByBrand(brand.Id).then((response) => {
+            this.makeYears = response.data
+        })
     }
 
     getReplacements (component) {
@@ -74,11 +71,9 @@ export class ContentCtrl {
             brandId    = component.brand.Id,
             makeYearId = component.makeYear.Id
 
-        _orderDetailService
-            .getReplacements(categoryId, brandId, makeYearId)
-            .then((response) => {
-                this.replacements = response.data
-            })
+        _orderDetailService.getReplacements(categoryId, brandId, makeYearId).then((response) => {
+            this.replacements = response.data
+        })
     }
 
 }

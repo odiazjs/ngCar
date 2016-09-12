@@ -6,7 +6,7 @@ export default class ContentFactory {
     
     constructor () {
         this.view = 'front'
-        this.map = new Map()
+        this.map = new Object()
     }
 
     onViewChange (option) {
@@ -24,11 +24,11 @@ export default class ContentFactory {
 
     }
 
-    memoizeData (car) {
-        this.map.set(car.component.id, new Object({
+    cacheSave (car) {
+        this.map[car.component.id] =  new Object({
              component: car.component }
-        ))
-        console.log(this.map.get(car.component.id))
+        )
+        console.log(this.map)
     }
 
     static factory (carService, orderDetailService) {

@@ -13,7 +13,7 @@
         <md-input-container>
           <label>Categorias</label>
           <md-select ng-model="ctrl.car.component.category"
-                     ng-change="ctrl.saveData(ctrl.car); ctrl.getReplacements(ctrl.car.component.category)">
+                     ng-change="ctrl.saveData(ctrl.car);">
             <md-option ng-repeat="category in ctrl.categories" 
                        ng-value="category">
               {{category.Nombre}}
@@ -31,8 +31,6 @@
               {{replacement.Nombre}}
             </md-option>
           </md-select>
-          <!--<md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
-          </md-progress-linear>-->
       </md-input-container>
   </div>
     <div flex-xs flex-gt-xs="100" layout="column">
@@ -80,8 +78,6 @@
               {{makeYear.Nombre}}
             </md-option>
           </md-select>
-          <!--<md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
-          </md-progress-linear>-->
         </md-input-container>
     </div>
 </md-content>
@@ -103,3 +99,21 @@
         </md-ctrl.card>
     </md-content>
 </div>
+
+<md-content class="md-padding" layout-xs="column" layout="row">
+  <div flex-xs flex-gt-xs="100" layout="column">
+    <md-list-item ng-repeat="(id, item) in ctrl.contentFactory.map"
+                  ng-click="ctrl.areaClick(item.component)"
+                  ng-if="item.component.view === ctrl.car.view">
+      <p> {{ item.component.id }} </p>
+      <p> {{ item.component.name }} </p>
+      <p> {{ item.component.subComponent.name }} </p>
+      <p> {{ item.component.action.name }} </p>
+      <p> {{ item.component.damageType.name }} </p>
+      <p> {{ item.component.category.Nombre }} </p>
+      <p> {{ item.component.brand.Nombre }} </p>
+      <p> {{ item.component.makeYear.Nombre }} </p>
+      <p> {{ item.component.replacement.Nombre }} </p>
+    </md-list-item>
+  </div>
+</md-content>
