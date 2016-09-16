@@ -98,13 +98,21 @@
             </map>
         </md-ctrl.card>
     </md-content>
+    <div flex-xs flex-gt-xs="100" layout="column">
+      <md-button class="md-raised md-primary pull-left"
+                 ng-click="ctrl.car.component.save(ctrl.car)">
+        Agregar a Lista
+      </md-button>
+    </div>
 </div>
 
 <md-content class="md-padding" layout-xs="column" layout="row">
   <div flex-xs flex-gt-xs="100" layout="column">
     <md-list-item ng-repeat="(id, item) in ctrl.contentFactory.map"
                   ng-click="ctrl.areaClick(item.component)"
-                  ng-if="item.component.view === ctrl.car.view">
+                  ng-if="item.component.view === ctrl.car.view && 
+                         item.component.isSaved">
+
       <p> {{ item.component.id }} </p>
       <p> {{ item.component.name }} </p>
       <p> {{ item.component.subComponent.name }} </p>
@@ -114,6 +122,12 @@
       <p> {{ item.component.brand.Nombre }} </p>
       <p> {{ item.component.makeYear.Nombre }} </p>
       <p> {{ item.component.replacement.Nombre }} </p>
+
+      <md-button class="md-raised md-warn"
+                 ng-click="item.component.delete()">
+        Remover
+      </md-button>
+
     </md-list-item>
   </div>
 </md-content>

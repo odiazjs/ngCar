@@ -20,5 +20,6 @@ import 'services/order.detail.service'
 import 'factories/option.factory'
 import 'factories/content.factory'
 import 'factories/car.factory'
+import 'factories/component.factory'
 
 angular.bootstrap(document, ['ngCar'])

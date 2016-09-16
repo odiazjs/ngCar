@@ -1,14 +1,15 @@
 import _module from 'module'
 import _ from 'lodash'
 
-let _$rootScope, _orderDetailService, carMap
+let _$rootScope, _orderDetailService, carMap, _componentFactory
 
 export class ContentCtrl {
 
-    constructor (contentFactory, orderDetailService, $rootScope) {
+    constructor (contentFactory, orderDetailService, $rootScope, componentFactory) {
 
         _orderDetailService = orderDetailService
         _$rootScope         = $rootScope
+        _componentFactory   = componentFactory
         this.loading        = true
         this.contentFactory = contentFactory()
         this.car            = this.contentFactory.onViewChange({ view: 'side' })
@@ -25,7 +26,9 @@ export class ContentCtrl {
 
     areaClick (area) {
 
-        this.car.component = _orderDetailService.getComponentByArea(area)
+        this.car.component = 
+            _componentFactory(_orderDetailService.getComponentByArea(area), 
+                this.contentFactory)
 
         if (this.contentFactory.map) {
             carMap = this.contentFactory.map[this.car.component.id]

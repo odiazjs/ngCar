@@ -1,7 +1,7 @@
 
 export default class Component {
 
-    constructor (id, areaId, name, subComponents, damageType, action, view) {
+    constructor (id, areaId, name, subComponents, damageType, action, view, isSaved) {
 
         this.id             = id
         this.name           = name
@@ -10,6 +10,7 @@ export default class Component {
         this.damageType     = damageType
         this.action         = action
         this.view           = view
+        this.isSaved        = isSaved
 
     }
 
