@@ -57,6 +57,10 @@ module.exports = {
       { 
         test: require.resolve("jquery"), 
         loader: "expose?$!expose?jQuery" 
+      },
+      { 
+        test: /\.(jpe?g|png|gif)$/i, 
+        loader: 'url?limit=10000!img?progressive=true' 
       }
     ]
   },

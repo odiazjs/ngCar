@@ -7,14 +7,15 @@ export class ContentCtrl {
 
     constructor (contentFactory, orderDetailService, $rootScope, componentFactory) {
 
-        _orderDetailService = orderDetailService
-        _$rootScope         = $rootScope
-        _componentFactory   = componentFactory
-        this.loading        = true
-        this.contentFactory = contentFactory()
-        this.car            = this.contentFactory.onViewChange({ view: 'side' })
-        this.damageTypes    = _orderDetailService.getDamageTypes()
-        this.actions        = _orderDetailService.getActions()
+        _orderDetailService     = orderDetailService
+        _$rootScope             = $rootScope
+        _componentFactory       = componentFactory
+        this.loading            = true
+        this.fabSpeedDial       = new FabSpeedDial()
+        this.contentFactory     = contentFactory()
+        this.car                = this.contentFactory.onViewChange({ view: 'side' })
+        this.damageTypes        = _orderDetailService.getDamageTypes()
+        this.actions            = _orderDetailService.getActions()
         this.getAsyncFilters()
 
         _$rootScope.$on('onViewChange:Event', (event, option) => {           
@@ -82,3 +83,15 @@ export class ContentCtrl {
 }
 
 _module.controller('ContentCtrl', ContentCtrl)
+
+export default class FabSpeedDial {
+
+    constructor () {
+
+        this.isOpen = false;
+        this.selectedMode = 'md-fling';
+        this.selectedDirection = 'up';
+
+    }
+
+}

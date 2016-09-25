@@ -27,7 +27,7 @@ _module.directive('contentSection', function ($timeout) {
             //     highlight: true,
             //     mapKey: 'name',
             //     showToolTip: true,
-            //     scaleMap: false,
+            //     scaleMap: true,
             //     toolTipClose: ["tooltip-click","area-mouseout"],
             //     areas: [{
             //         key: 'LFdoor',

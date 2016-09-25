@@ -20,6 +20,12 @@ html, body {
   padding: 0px;
 }
 
+a:active,
+a:focus {
+    /* -webkit-focus-ring-color = '#5B9DD9' */
+    outline: -webkit-focus-ring-color auto 5px !important;
+}
+
 md-input-container {
   font-size: 22px !important;
 }
