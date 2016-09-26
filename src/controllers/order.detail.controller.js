@@ -12,13 +12,13 @@ export class ContentCtrl {
         _componentFactory       = componentFactory
         this.loading            = true
         this.orderDetailFactory = orderDetailFactory()
-        this.car                = this.contentFactory.onViewChange({ view: 'side' })
+        this.car                = this.orderDetailFactory.onViewChange({ view: 'side' })
         this.damageTypes        = _orderDetailService.getDamageTypes()
         this.actions            = _orderDetailService.getActions()
         this.getAsyncFilters()
 
         _$rootScope.$on('onViewChange:Event', (event, option) => {           
-            this.car = this.contentFactory.onViewChange(option)
+            this.car = this.orderDetailFactory.onViewChange(option)
             $('img[usemap]').rwdImageMaps();
         })
 

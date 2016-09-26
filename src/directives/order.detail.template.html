@@ -111,7 +111,7 @@
 
 <md-content class="md-padding" layout-xs="column" layout="row">
   <div flex-xs flex-gt-xs="100" layout="column">
-    <md-list-item ng-repeat="(id, item) in ctrl.contentFactory.map"
+    <md-list-item ng-repeat="(id, item) in ctrl.orderDetailFactory.map"
                   ng-click="ctrl.areaClick(item.component)"
                   ng-if="item.component.view === ctrl.car.view && 
                          item.component.isSaved">
