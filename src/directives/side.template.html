@@ -1,11 +1,12 @@
+
 <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
             <md-list ng-repeat="option in ctrl.options" ng-click="ctrl.onMdListClick(option)">
               <md-list-item ng-click="ctrl.onMdListClick(option)"
                             ng-class="option.selected ? 'selected' : ''"
                             aria-label="Car view - {{option.view}}">
                     <img ng-src="{{ option.img }}" class="avatar" 
-                         ng-style="option.bgcolor" 
-                         ng-click="ctrl.onMdListClick(option)"></img>
+                        ng-style="option.bgcolor" 
+                        ng-click="ctrl.onMdListClick(option)"></img>
               </md-list-item>
           </md-list>
 </md-sidenav>
