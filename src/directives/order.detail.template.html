@@ -4,7 +4,7 @@
             <img ng-src="{{ctrl.car.image.url}}" class="md-ctrl.card-image" id="{{ctrl.car.image.id}}" usemap="{{ctrl.car.image.usemap}}">
             <map name="{{ctrl.car.map.name}}">
                 <area ng-repeat="area in ctrl.car.map.areas"
-                      ng-click="ctrl.areaClick(area)"
+                      ng-click="ctrl.areaClick(area.title)"
                       alt="{{area.alt}}" 
                       name="{{area.title}}"
                       title="{{area.title}}"  
@@ -113,7 +113,7 @@
 <md-content class="md-padding" layout-xs="column" layout="row">
   <div flex-xs flex-gt-xs="100" layout="column">
     <md-list-item ng-repeat="(id, item) in ctrl.orderDetailFactory.listMap"
-                  ng-click="ctrl.areaClick(item.component)"
+                  ng-click="ctrl.onListMapSelect(item.componentId)"
                   ng-if="item.view === ctrl.car.view">
 
       <p> {{ item.id }} </p>

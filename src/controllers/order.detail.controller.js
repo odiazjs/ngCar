@@ -24,10 +24,10 @@ export class ContentCtrl {
 
     }
 
-    areaClick (area) {
+    areaClick (areaTitle) {
 
         this.car.component = 
-            _componentFactory(_orderDetailService.getComponentByArea(area), 
+            _componentFactory(_orderDetailService.getComponentByArea(areaTitle), 
                 this.orderDetailFactory)
 
         if (this.orderDetailFactory.map) {
@@ -39,6 +39,18 @@ export class ContentCtrl {
         }
 
         this.orderDetailFactory.cacheSave(this.car)
+
+    }
+
+    onListMapSelect(componentId) {
+
+        let component = 
+            _orderDetailService.getComponents()
+                .filter((component) => {
+                    return component.id === componentId
+                })[0]
+
+        this.areaClick(component.areaId)
 
     }
 

@@ -45,12 +45,12 @@ export class OrderDetailService {
 
     }
 
-    getComponentByArea (area) {
+    getComponentByArea (areaTitle) {
 
         let component =
             this.getComponents()
                 .filter((component) => { 
-                    return component.areaId === (area.title || area.areaId) 
+                    return component.areaId === areaTitle 
                 })[0]
 
         component.subComponents = 
