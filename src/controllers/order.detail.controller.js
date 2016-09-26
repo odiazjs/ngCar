@@ -7,14 +7,14 @@ export class ContentCtrl {
 
     constructor (orderDetailFactory, orderDetailService, $rootScope, componentFactory) {
 
-        _orderDetailService     = orderDetailService
-        _$rootScope             = $rootScope
-        _componentFactory       = componentFactory
-        this.loading            = true
-        this.orderDetailFactory = orderDetailFactory()
-        this.car                = this.orderDetailFactory.onViewChange({ view: 'side' })
-        this.damageTypes        = _orderDetailService.getDamageTypes()
-        this.actions            = _orderDetailService.getActions()
+        _orderDetailService         = orderDetailService
+        _$rootScope                 = $rootScope
+        _componentFactory           = componentFactory
+        this.loading                = true
+        this.orderDetailFactory     = orderDetailFactory()
+        this.car                    = this.orderDetailFactory.onViewChange({ view: 'side' })
+        this.damageTypes            = _orderDetailService.getDamageTypes()
+        this.actions                = _orderDetailService.getActions()
         this.getAsyncFilters()
 
         _$rootScope.$on('onViewChange:Event', (event, option) => {           
@@ -40,10 +40,6 @@ export class ContentCtrl {
 
         this.orderDetailFactory.cacheSave(this.car)
 
-    }
-
-    selectSubComponent (subComponent) {
-        this.subComponent = subComponent
     }
 
     getAsyncFilters () {

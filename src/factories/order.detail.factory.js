@@ -5,8 +5,9 @@ let _carService, _orderDetailService
 export default class OrderDetailFactory {
     
     constructor () {
-        this.view = 'front'
-        this.map = new Object()
+        this.view              = ''
+        this.map               = new Object()
+        this.listMap           = new Object()
     }
 
     onViewChange (option) {
@@ -29,6 +30,14 @@ export default class OrderDetailFactory {
              component: car.component }
         )
         console.log(this.map)
+    }
+
+    addToList (subComponent) {
+        this.listMap[subComponent.id] = new Object(subComponent)
+    }
+
+    removeFromList (subComponent) {
+        this.listMap[subComponent.id] = undefined
     }
 
     static factory (carService, orderDetailService) {

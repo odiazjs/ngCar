@@ -30,7 +30,7 @@
         </md-input-container>
         <md-input-container>
           <label>Categorias</label>
-          <md-select ng-model="ctrl.car.component.category"
+          <md-select ng-model="ctrl.car.component.subComponent.category"
                      ng-change="ctrl.saveData(ctrl.car);">
             <md-option ng-repeat="category in ctrl.categories" 
                        ng-value="category">
@@ -42,7 +42,7 @@
       </md-input-container>
       <md-input-container>
           <label>Repuestos</label>
-          <md-select ng-model="ctrl.car.component.replacement"
+          <md-select ng-model="ctrl.car.component.subComponent.replacement"
                      ng-change="ctrl.saveData(ctrl.car);">
             <md-option ng-repeat="replacement in ctrl.replacements" 
                        ng-value="replacement">
@@ -54,7 +54,7 @@
     <div flex-xs flex-gt-xs="100" layout="column">
       <md-input-container>
           <label>Accion</label>
-          <md-select ng-model="ctrl.car.component.action"
+          <md-select ng-model="ctrl.car.component.subComponent.action"
                      ng-change="ctrl.saveData(ctrl.car)">
             <md-option ng-repeat="action in ctrl.actions" 
                        ng-value="action">
@@ -64,7 +64,7 @@
         </md-input-container>
         <md-input-container>
           <label>Marca</label>
-          <md-select ng-model="ctrl.car.component.brand"
+          <md-select ng-model="ctrl.car.component.subComponent.brand"
                      ng-change="ctrl.saveData(ctrl.car); ctrl.getMakeYearByBrand(ctrl.car.component.brand)">
             <md-option ng-repeat="brand in ctrl.brands" 
                        ng-value="brand">
@@ -78,7 +78,7 @@
     <div flex-xs flex-gt-xs="100" layout="column">
       <md-input-container>
         <label>Tipo Lista</label>
-        <md-select ng-model="ctrl.car.component.damageType"
+        <md-select ng-model="ctrl.car.component.subComponent.damageType"
                     ng-change="ctrl.saveData(ctrl.car)">
           <md-option ng-repeat="damageType in ctrl.damageTypes" 
                       ng-value="damageType">
@@ -88,7 +88,7 @@
       </md-input-container>
       <md-input-container>
           <label>Modelo</label>
-          <md-select ng-model="ctrl.car.component.makeYear"
+          <md-select ng-model="ctrl.car.component.subComponent.makeYear"
                      ng-change="ctrl.saveData(ctrl.car); 
                                 ctrl.getReplacements(ctrl.car.component);">
             <md-option ng-repeat="makeYear in ctrl.makeYears" 
@@ -103,7 +103,8 @@
 <div class="row" flex>
   <div flex-xs flex-gt-xs="100" layout="column">
     <md-button class="md-raised md-primary pull-left"
-                ng-click="ctrl.car.component.save(ctrl.car)">
+                ng-click="ctrl.orderDetailFactory.addToList(ctrl.car.component.subComponent)"
+                ng-disabled="!ctrl.car.component.subComponent">
       Agregar a Lista
     </md-button>
   </div>
@@ -111,23 +112,21 @@
 
 <md-content class="md-padding" layout-xs="column" layout="row">
   <div flex-xs flex-gt-xs="100" layout="column">
-    <md-list-item ng-repeat="(id, item) in ctrl.orderDetailFactory.map"
+    <md-list-item ng-repeat="(id, item) in ctrl.orderDetailFactory.listMap"
                   ng-click="ctrl.areaClick(item.component)"
-                  ng-if="item.component.view === ctrl.car.view && 
-                         item.component.isSaved">
+                  ng-if="item.view === ctrl.car.view">
 
-      <p> {{ item.component.id }} </p>
-      <p> {{ item.component.name }} </p>
-      <p> {{ item.component.subComponent.name }} </p>
-      <p> {{ item.component.action.name }} </p>
-      <p> {{ item.component.damageType.name }} </p>
-      <p> {{ item.component.category.Nombre }} </p>
-      <p> {{ item.component.brand.Nombre }} </p>
-      <p> {{ item.component.makeYear.Nombre }} </p>
-      <p> {{ item.component.replacement.Nombre }} </p>
+      <p> {{ item.id }} </p>
+      <p> {{ item.name }} </p>
+      <p> {{ item.action.name }} </p>
+      <p> {{ item.damageType.name }} </p>
+      <p> {{ item.category.Nombre }} </p>
+      <p> {{ item.brand.Nombre }} </p>
+      <p> {{ item.makeYear.Nombre }} </p>
+      <p> {{ item.replacement.Nombre }} </p>
 
       <md-button class="md-raised md-warn"
-                 ng-click="item.component.delete()">
+                 ng-click="ctrl.orderDetailFactory.removeFromList(item)">
         Remover
       </md-button>
 

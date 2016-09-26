@@ -13,23 +13,9 @@ class ComponentFactory {
         this.damageType     = component.damageType
         this.action         = component.action
         this.view           = component.view
-        this.isSaved        = component.isSaved
         _orderDetailFactory = orderDetailFactory
 
 
-    }
-
-    save() {
-
-        if (_.isEmpty(this)) {
-            return
-        }
-
-        _orderDetailFactory.map[this.id].component.isSaved = true;
-    }
-
-    delete () {
-        _orderDetailFactory.map[this.id].component.isSaved = false;
     }
 
     static factory () {
