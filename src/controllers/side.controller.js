@@ -4,12 +4,12 @@ let _$rootScope
 
 export class SideCtrl {
 
-    constructor (sideNavService, optionFactory, contentFactory, $rootScope) {
+    constructor (sideNavService, optionFactory, orderDetailFactory, $rootScope) {
 
-        this.sideNavService = sideNavService
-        this.optionFactory  = optionFactory
-        this.contentFactory = contentFactory()
-        _$rootScope         = $rootScope
+        this.sideNavService     = sideNavService
+        this.optionFactory      = optionFactory
+        this.orderDetailFactory = orderDetailFactory()
+        _$rootScope             = $rootScope
 
         this.options = 
             this.sideNavService.getOptions()

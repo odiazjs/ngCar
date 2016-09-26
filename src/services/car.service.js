@@ -50,7 +50,7 @@ export default class CarService {
                     ]
                 },
 
-                'side'
+                'side',
             ),
 
             new Car(
@@ -83,7 +83,7 @@ export default class CarService {
                     ]
                 },
 
-                'front'
+                'front',
             ),
 
             new Car(
@@ -112,7 +112,7 @@ export default class CarService {
                     ]
                 },
 
-                'rear'
+                'rear',
             )
         ]
 

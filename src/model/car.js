@@ -22,9 +22,9 @@ export default class Car {
 
         this.component = {}
 
-        this.image = image
-        this.map   = map
-        this.view  = view
+        this.image       = image
+        this.map         = map
+        this.view        = view
 
     }
     

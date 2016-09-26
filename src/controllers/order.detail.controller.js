@@ -5,14 +5,13 @@ let _$rootScope, _orderDetailService, carMap, _componentFactory
 
 export class ContentCtrl {
 
-    constructor (contentFactory, orderDetailService, $rootScope, componentFactory) {
+    constructor (orderDetailFactory, orderDetailService, $rootScope, componentFactory) {
 
         _orderDetailService     = orderDetailService
         _$rootScope             = $rootScope
         _componentFactory       = componentFactory
         this.loading            = true
-        this.fabSpeedDial       = new FabSpeedDial()
-        this.contentFactory     = contentFactory()
+        this.orderDetailFactory = orderDetailFactory()
         this.car                = this.contentFactory.onViewChange({ view: 'side' })
         this.damageTypes        = _orderDetailService.getDamageTypes()
         this.actions            = _orderDetailService.getActions()
@@ -29,17 +28,17 @@ export class ContentCtrl {
 
         this.car.component = 
             _componentFactory(_orderDetailService.getComponentByArea(area), 
-                this.contentFactory)
+                this.orderDetailFactory)
 
-        if (this.contentFactory.map) {
-            carMap = this.contentFactory.map[this.car.component.id]
+        if (this.orderDetailFactory.map) {
+            carMap = this.orderDetailFactory.map[this.car.component.id]
         }
 
         if (carMap) {
             this.car.component = carMap.component
         }
 
-        this.contentFactory.cacheSave(this.car)
+        this.orderDetailFactory.cacheSave(this.car)
 
     }
 
@@ -83,15 +82,3 @@ export class ContentCtrl {
 }
 
 _module.controller('ContentCtrl', ContentCtrl)
-
-export default class FabSpeedDial {
-
-    constructor () {
-
-        this.isOpen = false;
-        this.selectedMode = 'md-fling';
-        this.selectedDirection = 'up';
-
-    }
-
-}

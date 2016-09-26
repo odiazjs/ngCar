@@ -1,7 +1,7 @@
 import _module from 'module'
-import template from './content.template.html'
+import template from './order.detail.template.html'
 
-_module.directive('contentSection', function ($timeout) {
+_module.directive('orderDetail', function ($timeout) {
     'ngInject'
 
     return {

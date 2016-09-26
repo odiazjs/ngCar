@@ -2,7 +2,7 @@ import _module from 'module'
 
 let _carService, _orderDetailService
 
-export default class ContentFactory {
+export default class OrderDetailFactory {
     
     constructor () {
         this.view = 'front'
@@ -36,9 +36,9 @@ export default class ContentFactory {
         _carService         = carService
         _orderDetailService = orderDetailService
 
-        return () => new ContentFactory()
+        return () => new OrderDetailFactory()
 
     }
 }
 
-_module.factory('contentFactory', ContentFactory.factory)
+_module.factory('orderDetailFactory', OrderDetailFactory.factory)

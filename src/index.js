@@ -8,8 +8,8 @@ import HeaderCtrl from 'controllers/header.controller'
 import 'directives/header.directive'
 import 'app.scss'
 
-import ContentCtrl from 'controllers/content.controller'
-import 'directives/content.directive'
+import ContentCtrl from 'controllers/order.detail.controller'
+import 'directives/order.detail.directive'
 
 //Services
 import 'services/side.service'
@@ -18,7 +18,7 @@ import 'services/order.detail.service'
 
 //Factories
 import 'factories/option.factory'
-import 'factories/content.factory'
+import 'factories/order.detail.factory'
 import 'factories/car.factory'
 import 'factories/component.factory'
 
