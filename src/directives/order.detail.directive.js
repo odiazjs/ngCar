@@ -16,7 +16,7 @@ _module.directive('orderDetail', function ($timeout) {
 
             $timeout(() => {
 
-                // $('img[usemap]').rwdImageMaps();
+                $('img[usemap]').rwdImageMaps();
                 // console.log('ajustado!')
 
                 // TODO: this messes up the responsive rwdImageMaps

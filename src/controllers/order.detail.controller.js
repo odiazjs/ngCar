@@ -3,7 +3,7 @@ import _ from 'lodash'
 
 let _$rootScope, _orderDetailService, carMap, _componentFactory
 
-export class ContentCtrl {
+export class OrderDetailCtrl {
 
     constructor (orderDetailFactory, orderDetailService, $rootScope, componentFactory) {
 
@@ -19,6 +19,7 @@ export class ContentCtrl {
 
         _$rootScope.$on('onViewChange:Event', (event, option) => {           
             this.car = this.orderDetailFactory.onViewChange(option)
+            $('img[usemap]').rwdImageMaps()
         })
 
     }
@@ -88,4 +89,4 @@ export class ContentCtrl {
 
 }
 
-_module.controller('ContentCtrl', ContentCtrl)
+_module.controller('OrderDetailCtrl', OrderDetailCtrl)

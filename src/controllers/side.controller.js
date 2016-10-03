@@ -28,6 +28,10 @@ export class SideCtrl {
               
     }
 
+    getIco () {
+        
+    }
+
 }
 
 _module.controller('SideCtrl', SideCtrl)

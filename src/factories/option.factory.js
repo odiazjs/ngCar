@@ -9,6 +9,8 @@ export default class OptionFactory {
         this.view     = model.view
         this.img      = model.img
         this.bgcolor  = model.bgcolor
+        this.default  = model.default
+        this.navTo    = model.navTo
 
     }
 

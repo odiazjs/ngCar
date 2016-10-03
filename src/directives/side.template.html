@@ -4,9 +4,20 @@
               <md-list-item ng-click="ctrl.onMdListClick(option)"
                             ng-class="option.selected ? 'selected' : ''"
                             aria-label="Car view - {{option.view}}">
+                    <md-button class="md-fab md-primary" 
+                                style="width: 100px; height:100px;"
+                                aria-label="Formulario Maestro"
+                                ng-if="option.view === 'master'"
+                                ng-click="option.navTo()">
+                        <md-icon class="material-icons"
+                                 aria-label="Formulario Maestro">
+                            {{option.img}}
+                        </md-icon>
+                    </md-button>
                     <img ng-src="{{ option.img }}" class="avatar" 
-                        ng-style="option.bgcolor" 
-                        ng-click="ctrl.onMdListClick(option)"></img>
+                         ng-style="option.bgcolor" 
+                         ng-click="ctrl.onMdListClick(option); option.navTo()"
+                         ng-if="option.view !== 'master'"></img>
               </md-list-item>
           </md-list>
 </md-sidenav>
