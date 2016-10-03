@@ -1,1 +1,203 @@
-asdfasdf
+<div layout="column" ng-cloak class="md-inline-form">
+
+  <md-content layout-padding>
+    <div>
+      <form name="userForm">
+
+        <div layout-gt-xs="row" flex-gt-xs>
+          <md-input-container>
+                <label>Fecha</label>
+          <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container flex-gt-sm>
+                <label>Cliente</label>
+                <md-select ng-model="ctrl.car.component.subComponent"
+                            ng-change="ctrl.saveData(ctrl.car)">
+                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                            ng-value="subComponent">
+                    {{subComponent.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container flex-gt-sm>
+                <label>Vehiculo</label>
+                <md-select ng-model="ctrl.car.component.subComponent"
+                            ng-change="ctrl.saveData(ctrl.car)">
+                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                            ng-value="subComponent">
+                    {{subComponent.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container flex-gt-sm>
+                <label>Combustible</label>
+                <md-select ng-model="ctrl.car.component.subComponent"
+                            ng-change="ctrl.saveData(ctrl.car)">
+                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                            ng-value="subComponent">
+                    {{subComponent.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container flex-gt-sm>
+                <label>Km/Millas</label>
+                <input></input>
+            </md-input-container>
+
+            <md-input-container flex-gt-sm>
+                <label>Empleado Receptor</label>
+                <md-select ng-model="ctrl.car.component.subComponent"
+                            ng-change="ctrl.saveData(ctrl.car)">
+                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                            ng-value="subComponent">
+                    {{subComponent.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container flex-gt-sm>
+                <label>Empleado Responsable</label>
+                <md-select ng-model="ctrl.car.component.subComponent"
+                            ng-change="ctrl.saveData(ctrl.car)">
+                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                            ng-value="subComponent">
+                    {{subComponent.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Observaciones</label>
+          <textarea ng-model="user.biography" md-maxlength="100" rows="4" md-select-on-focus></textarea>
+        </md-input-container>
+
+      </form>
+    </div>
+  </md-content>
+
+</div>
+
+
+<!--<div layout="row" ng-cloak class="md-inline-form" flex-xs flex-gt-xs="100">
+            <md-input-container>
+                <label>Fecha</label>
+                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Cliente</label>
+                <md-select ng-model="ctrl.car.component.subComponent"
+                            ng-change="ctrl.saveData(ctrl.car)">
+                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                            ng-value="subComponent">
+                    {{subComponent.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container>
+                <label>Vehiculo</label>
+                <md-select ng-model="ctrl.car.component.subComponent"
+                            ng-change="ctrl.saveData(ctrl.car)">
+                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                            ng-value="subComponent">
+                    {{subComponent.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+</div>-->
+
+<!--<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-input-container>
+            <label>Fecha</label>
+            <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+        </md-input-container>
+        <md-input-container style="margin-top:-4.5%;">
+            <label>Vehiculo</label>
+            <md-select ng-model="ctrl.car.component.subComponent.category"
+                    ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="category in ctrl.categories" 
+                        ng-value="category">
+                {{category.Nombre}}
+            </md-option>
+            </md-select>
+            <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+            </md-progress-linear>
+        </md-input-container>
+        <md-input-container style="margin-top:-4.5%;">
+            <label>Vehiculo</label>
+            <input ng-model="user.firstName">
+        </md-input-container>
+    </div>
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-input-container>
+        <label>Cliente</label>
+        <md-select ng-model="ctrl.car.component.subComponent"
+                    ng-change="ctrl.saveData(ctrl.car)">
+            <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                    ng-value="subComponent">
+            {{subComponent.name}}
+            </md-option>
+        </md-select>
+        </md-input-container>
+        <md-input-container>
+            <label>Combustible</label>
+            <md-select ng-model="ctrl.car.component.subComponent.category"
+                    ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="category in ctrl.categories" 
+                        ng-value="category">
+                {{category.Nombre}}
+            </md-option>
+            </md-select>
+            <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+            </md-progress-linear>
+        </md-input-container>
+    </div>
+    <!--<div flex-xs flex-gt-xs="100" layout="column">
+        <md-input-container>
+            <label>Empleado Receptor</label>
+            <md-select ng-model="ctrl.car.component.subComponent.category"
+                    ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="category in ctrl.categories" 
+                        ng-value="category">
+                {{category.Nombre}}
+            </md-option>
+            </md-select>
+            <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+            </md-progress-linear>
+        </md-input-container>
+        <md-input-container>
+            <label>Empleado Responsable</label>
+            <md-select ng-model="ctrl.car.component.subComponent.category"
+                    ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="category in ctrl.categories" 
+                        ng-value="category">
+                {{category.Nombre}}
+            </md-option>
+            </md-select>
+            <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+            </md-progress-linear>
+        </md-input-container>
+    </div>
+    <div flex-xs flex-gt-xs="100" layout="column">
+        <md-input-container>
+            <label>Observaciones</label>
+            <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus>
+            </textarea>
+        </md-input-container>
+    </div>
+</md-content>-->

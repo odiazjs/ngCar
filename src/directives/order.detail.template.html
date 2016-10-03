@@ -20,61 +20,61 @@
   <md-content class="md-padding" layout-xs="column" layout="row">
     <div flex-xs flex-gt-xs="100" layout="column">
       <md-input-container>
-            <label>Sub-Componente</label>
-            <md-select ng-model="ctrl.car.component.subComponent"
-                      ng-change="ctrl.saveData(ctrl.car)">
-              <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
-                        ng-value="subComponent">
-                {{subComponent.name}}
-              </md-option>
-            </md-select>
-          </md-input-container>
-          <md-input-container>
-            <label>Categorias</label>
-            <md-select ng-model="ctrl.car.component.subComponent.category"
-                      ng-change="ctrl.saveData(ctrl.car);">
-              <md-option ng-repeat="category in ctrl.categories" 
-                        ng-value="category">
-                {{category.Nombre}}
-              </md-option>
-            </md-select>
-            <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
-            </md-progress-linear>
+        <label>Sub-Componente</label>
+        <md-select ng-model="ctrl.car.component.subComponent"
+                  ng-change="ctrl.saveData(ctrl.car)">
+          <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
+                    ng-value="subComponent">
+            {{subComponent.name}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+        <md-input-container>
+          <label>Categorias</label>
+          <md-select ng-model="ctrl.car.component.subComponent.category"
+                    ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="category in ctrl.categories" 
+                      ng-value="category">
+              {{category.Nombre}}
+            </md-option>
+          </md-select>
+          <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+          </md-progress-linear>
+      </md-input-container>
+      <md-input-container>
+          <label>Repuestos</label>
+          <md-select ng-model="ctrl.car.component.subComponent.replacement"
+                    ng-change="ctrl.saveData(ctrl.car);">
+            <md-option ng-repeat="replacement in ctrl.replacements" 
+                      ng-value="replacement">
+              {{replacement.Nombre}}
+            </md-option>
+          </md-select>
+      </md-input-container>
+  </div>
+    <div flex-xs flex-gt-xs="100" layout="column">
+      <md-input-container>
+          <label>Accion</label>
+          <md-select ng-model="ctrl.car.component.subComponent.action"
+                    ng-change="ctrl.saveData(ctrl.car)">
+            <md-option ng-repeat="action in ctrl.actions" 
+                      ng-value="action">
+              {{action.name}}
+            </md-option>
+          </md-select>
         </md-input-container>
         <md-input-container>
-            <label>Repuestos</label>
-            <md-select ng-model="ctrl.car.component.subComponent.replacement"
-                      ng-change="ctrl.saveData(ctrl.car);">
-              <md-option ng-repeat="replacement in ctrl.replacements" 
-                        ng-value="replacement">
-                {{replacement.Nombre}}
-              </md-option>
-            </md-select>
+          <label>Marca</label>
+          <md-select ng-model="ctrl.car.component.subComponent.brand"
+                    ng-change="ctrl.saveData(ctrl.car); ctrl.getMakeYearByBrand(ctrl.car.component.brand)">
+            <md-option ng-repeat="brand in ctrl.brands" 
+                      ng-value="brand">
+              {{brand.Nombre}}
+            </md-option>
+          </md-select>
+          <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+          </md-progress-linear>
         </md-input-container>
-    </div>
-      <div flex-xs flex-gt-xs="100" layout="column">
-        <md-input-container>
-            <label>Accion</label>
-            <md-select ng-model="ctrl.car.component.subComponent.action"
-                      ng-change="ctrl.saveData(ctrl.car)">
-              <md-option ng-repeat="action in ctrl.actions" 
-                        ng-value="action">
-                {{action.name}}
-              </md-option>
-            </md-select>
-          </md-input-container>
-          <md-input-container>
-            <label>Marca</label>
-            <md-select ng-model="ctrl.car.component.subComponent.brand"
-                      ng-change="ctrl.saveData(ctrl.car); ctrl.getMakeYearByBrand(ctrl.car.component.brand)">
-              <md-option ng-repeat="brand in ctrl.brands" 
-                        ng-value="brand">
-                {{brand.Nombre}}
-              </md-option>
-            </md-select>
-            <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
-            </md-progress-linear>
-          </md-input-container>
       </div>
       <div flex-xs flex-gt-xs="100" layout="column">
         <md-input-container>
@@ -88,16 +88,16 @@
           </md-select>
         </md-input-container>
         <md-input-container>
-            <label>Modelo</label>
-            <md-select ng-model="ctrl.car.component.subComponent.makeYear"
-                      ng-change="ctrl.saveData(ctrl.car); 
-                                  ctrl.getReplacements(ctrl.car.component);">
-              <md-option ng-repeat="makeYear in ctrl.makeYears" 
-                        ng-value="makeYear">
-                {{makeYear.Nombre}}
-              </md-option>
-            </md-select>
-          </md-input-container>
+          <label>Modelo</label>
+          <md-select ng-model="ctrl.car.component.subComponent.makeYear"
+                    ng-change="ctrl.saveData(ctrl.car); 
+                                ctrl.getReplacements(ctrl.car.component);">
+            <md-option ng-repeat="makeYear in ctrl.makeYears" 
+                      ng-value="makeYear">
+              {{makeYear.Nombre}}
+            </md-option>
+          </md-select>
+        </md-input-container>
       </div>
   </md-content>
 
