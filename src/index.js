@@ -1,5 +1,6 @@
 import angular from 'angular'
 import _module from 'module'
+import 'angular-route'
 
 import SideCtrl from 'controllers/side.controller'
 import 'directives/side.directive'

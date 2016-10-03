@@ -1,5 +1,6 @@
 let _module  = angular.module('ngCar', [ 
-    'ngMaterial'
+    'ngMaterial',
+    'ngRoute'
 ])
 
 export default _module

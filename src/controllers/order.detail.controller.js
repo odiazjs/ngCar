@@ -19,7 +19,6 @@ export class ContentCtrl {
 
         _$rootScope.$on('onViewChange:Event', (event, option) => {           
             this.car = this.orderDetailFactory.onViewChange(option)
-            $('img[usemap]').rwdImageMaps();
         })
 
     }

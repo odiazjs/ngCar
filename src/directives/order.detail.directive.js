@@ -16,27 +16,27 @@ _module.directive('orderDetail', function ($timeout) {
 
             $timeout(() => {
 
-            $('img[usemap]').rwdImageMaps();
-            console.log('ajustado!')
+                // $('img[usemap]').rwdImageMaps();
+                // console.log('ajustado!')
 
-            // TODO: this messes up the responsive rwdImageMaps
-            // $('#car-side').mapster({
-            //     staticState: true,
-            //     fillOpacity: 0.4,
-            //     fillColor: 'fadbb84',
-            //     highlight: true,
-            //     mapKey: 'name',
-            //     showToolTip: true,
-            //     scaleMap: true,
-            //     toolTipClose: ["tooltip-click","area-mouseout"],
-            //     areas: [{
-            //         key: 'LFdoor',
-            //         toolTip: 'Puerta frontal lado izquierdo.'
-            //     }],                   
-            //     onClick: function (e) {
-                    
-            //     }
-            // });
+                // TODO: this messes up the responsive rwdImageMaps
+                // $('#car-' + scope.ctrl.car.view).mapster({
+                //     staticState: false,
+                //     fillOpacity: 0.4,
+                //     fillColor: 'fadbb84',
+                //     highlight: true,
+                //     mapKey: 'name',
+                //     showToolTip: true,
+                //     scaleMap: true,
+                //     toolTipClose: ["tooltip-click","area-mouseout"],
+                //     areas: [{
+                //         key: 'LFdoor',
+                //         toolTip: 'Puerta frontal lado izquierdo.'
+                //     }],                   
+                //     onClick: function (e) {
+                        
+                //     }
+                // });
 
             }, 0)
 
