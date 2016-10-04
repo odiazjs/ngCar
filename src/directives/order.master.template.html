@@ -7,7 +7,7 @@
         <div layout-gt-xs="row" flex-gt-xs>
           <md-input-container>
                 <label>Fecha</label>
-          <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+          <md-datepicker ng-model="ctrl.order.date"></md-datepicker>
           </md-input-container>
         </div>
 
@@ -18,33 +18,30 @@
         <div layout-gt-sm="row">
           <md-input-container flex-gt-sm>
                 <label>Cliente</label>
-                <md-select ng-model="ctrl.car.component.subComponent"
-                            ng-change="ctrl.saveData(ctrl.car)">
-                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
-                            ng-value="subComponent">
-                    {{subComponent.name}}
+                <md-select ng-model="ctrl.order.customer">
+                    <md-option ng-repeat="customer in ctrl.customers" 
+                            ng-value="customer">
+                    {{customer.APELLIDOS_CONTACTO}} {{customer.NOMBRE}}
                     </md-option>
                 </md-select>
             </md-input-container>
 
             <md-input-container flex-gt-sm>
                 <label>Vehiculo</label>
-                <md-select ng-model="ctrl.car.component.subComponent"
-                            ng-change="ctrl.saveData(ctrl.car)">
-                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
-                            ng-value="subComponent">
-                    {{subComponent.name}}
+                <md-select ng-model="ctrl.order.vehicle">
+                    <md-option ng-repeat="vehicle in ctrl.vehicles" 
+                            ng-value="vehicle">
+                    {{vehicle.MARCA}} {{vehicle.MODELO}}
                     </md-option>
                 </md-select>
             </md-input-container>
 
             <md-input-container flex-gt-sm>
                 <label>Combustible</label>
-                <md-select ng-model="ctrl.car.component.subComponent"
-                            ng-change="ctrl.saveData(ctrl.car)">
-                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
-                            ng-value="subComponent">
-                    {{subComponent.name}}
+                <md-select ng-model="ctrl.order.gasOption">
+                    <md-option ng-repeat="gasOption in ctrl.gasOptions" 
+                            ng-value="gasOption">
+                    {{gasOption.id}}
                     </md-option>
                 </md-select>
             </md-input-container>
@@ -53,27 +50,25 @@
         <div layout-gt-sm="row">
           <md-input-container flex-gt-sm>
                 <label>Km/Millas</label>
-                <input></input>
+                <input ng-model="ctrl.order.distance"></input>
             </md-input-container>
 
             <md-input-container flex-gt-sm>
                 <label>Empleado Receptor</label>
-                <md-select ng-model="ctrl.car.component.subComponent"
-                            ng-change="ctrl.saveData(ctrl.car)">
-                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
-                            ng-value="subComponent">
-                    {{subComponent.name}}
+                <md-select ng-model="ctrl.order.employeeReceptor">
+                    <md-option ng-repeat="receptor in ctrl.employeesReceptor" 
+                            ng-value="receptor">
+                    {{receptor.NOMBRES}} {{receptor.APELLIDOS}}
                     </md-option>
                 </md-select>
             </md-input-container>
 
             <md-input-container flex-gt-sm>
                 <label>Empleado Responsable</label>
-                <md-select ng-model="ctrl.car.component.subComponent"
-                            ng-change="ctrl.saveData(ctrl.car)">
-                    <md-option ng-repeat="subComponent in ctrl.car.component.subComponents" 
-                            ng-value="subComponent">
-                    {{subComponent.name}}
+                <md-select ng-model="ctrl.order.employeeResponsable">
+                    <md-option ng-repeat="receptor in ctrl.employeesResponsable" 
+                            ng-value="receptor">
+                    {{receptor.NOMBRES}} {{receptor.APELLIDOS}}
                     </md-option>
                 </md-select>
             </md-input-container>
@@ -81,7 +76,10 @@
 
         <md-input-container class="md-block">
           <label>Observaciones</label>
-          <textarea ng-model="user.biography" md-maxlength="100" rows="4" md-select-on-focus></textarea>
+          <textarea ng-model="ctrl.order.observation" 
+                    md-maxlength="100" 
+                    rows="4" 
+                    md-select-on-focus></textarea>
         </md-input-container>
 
       </form>

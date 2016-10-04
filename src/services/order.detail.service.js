@@ -5,13 +5,13 @@ import Action from 'model/action'
 import DamageType from 'model/damageType'
 import memoize from 'memoized-decorator'
 
-let _$http
+let _$http, _httpConfig
 
 export class OrderDetailService {
 
-    constructor ($http) {
-        _$http = $http
-        this.baseUrl = 'http://gdsgt.net/jonasa'
+    constructor ($http, httpConfig) {
+        _$http      = $http
+        _httpConfig = httpConfig
     }
 
     getComponents () {
@@ -131,12 +131,12 @@ export class OrderDetailService {
     
     @memoize
     getCategories () {
-        const url = `${this.baseUrl}${'/categoria/apiLista'}`
+        const url = `${_httpConfig.baseUrl}${'/categoria/apiLista'}`
         return _$http.get(url)
     }
 
     getBrands () {
-        const url = `${this.baseUrl}${'/marca/apiLista'}`
+        const url = `${_httpConfig.baseUrl}${'/marca/apiLista'}`
         return _$http.get(url)
     }
 
@@ -145,12 +145,12 @@ export class OrderDetailService {
     }
 
     getMakeYearByBrand (brandId) {
-        const url = `${this.baseUrl}${'/modelo/apiLista?'}${'marca='}${brandId}`
+        const url = `${_httpConfig.baseUrl}${'/modelo/apiLista?'}${'marca='}${brandId}`
         return _$http.get(url)
     }
 
     getReplacements (categoryId = '', brandId, modelId) {
-        const url = `${this.baseUrl}${'/stock_producto/apiRepuestoPrecio?'}
+        const url = `${_httpConfig.baseUrl}${'/stock_producto/apiRepuestoPrecio?'}
             ${'categoria='}${categoryId}${'&marca='}${brandId}${'&modelo='}${''}`
         return _$http.get(url)
     }
