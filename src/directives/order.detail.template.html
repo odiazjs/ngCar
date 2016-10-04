@@ -1,5 +1,5 @@
 
-  <div class="container md-whiteframe-0dp">
+  <div class="container md-whiteframe-0dp" ng-init="ctrl.onInit()">
       <md-content class="md-padding md-whiteframe-0dp" layout-xs="column" layout="row">
           <md-card class="md-whiteframe-0dp" ng-style="{{ctrl.car.paddingLeft}}">
               <img ng-src="{{ctrl.car.image.url}}" class="md-ctrl.card-image" id="{{ctrl.car.image.id}}" usemap="{{ctrl.car.image.usemap}}">

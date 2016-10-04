@@ -1,13 +1,14 @@
 import _module from 'module'
 import _ from 'lodash'
 
-let _$rootScope, _orderDetailService, carMap, _componentFactory
+let _$rootScope, _orderDetailService, carMap, _componentFactory, _sideNavService
 
 export class OrderDetailCtrl {
 
-    constructor (orderDetailFactory, orderDetailService, $rootScope, componentFactory) {
+    constructor (orderDetailFactory, orderDetailService, $rootScope, componentFactory, sideNavService) {
 
         _orderDetailService         = orderDetailService
+        _sideNavService             = sideNavService
         _$rootScope                 = $rootScope
         _componentFactory           = componentFactory
         this.loading                = true
@@ -22,6 +23,17 @@ export class OrderDetailCtrl {
             $('img[usemap]').rwdImageMaps()
         })
 
+    }
+
+    onInit () {
+
+        let option = _sideNavService
+            .getOptions()
+            .filter((option) => {
+                return option.view === 'side'
+            })[0];
+
+            _$rootScope.$broadcast('onMasterSaved:Event', option)
     }
 
     areaClick (ev, areaTitle) {

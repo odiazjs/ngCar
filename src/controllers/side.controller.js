@@ -16,12 +16,20 @@ export class SideCtrl {
                 .map((option) => {
                     return this.optionFactory(option)
                 })
+
+        _$rootScope.$on('onMasterSaved:Event', (event, option) => {           
+            this.onMdListClick(option)
+        })
     }
 
     onMdListClick (option) {
         this.options
-            .reduce((boolean, item) => {
-                item.selected = false, option.selected = true
+            .reduce((prev, current) => {
+                if (option.id === current.id) {
+                    current.selected = true
+                } else {
+                    current.selected = false
+                }
             }, false)
 
         _$rootScope.$broadcast('onViewChange:Event', option)
