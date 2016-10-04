@@ -1,12 +1,13 @@
 import _module from 'module'
 import _ from 'lodash'
 
-let _orderMasterService
+let _orderMasterService, _$stateParams
 
 export class OrderMasterCtrl { 
 
-    constructor (orderMasterService) {
-        _orderMasterService = orderMasterService
+    constructor (orderMasterService, $stateParams) {
+        _orderMasterService = orderMasterService,
+        _$stateParams       = $stateParams
         this.order = {
             date: new Date(),
             customer: {},

@@ -1,11 +1,12 @@
 import _module from 'module'
 
-let _$state
+let _$state, _$stateParams
 
 export class SideNavService {
 
-    constructor ($state) {
-        _$state = $state
+    constructor ($state, $stateParams) {
+        _$state         = $state,
+        _$stateParams   = $stateParams
     }
 
     getOptions () {
@@ -19,7 +20,7 @@ export class SideNavService {
                 bgcolor: { 'background-color': 'blue' },
                 default: true,
                 navTo: () => {
-                    _$state.go('root.master')
+                    _$state.go('root.master', { orderId: _$stateParams.orderId })
                 }
             },
 
@@ -30,7 +31,7 @@ export class SideNavService {
                 bgcolor: { 'background-color': '#bbf5cb' },
                 default: false,
                 navTo: () => {
-                    _$state.go('root.detail')
+                    _$state.go('root.detail', { orderId: _$stateParams.orderId })
                 }
             },
 
@@ -41,7 +42,7 @@ export class SideNavService {
                 bgcolor: { 'background-color': '#fedfb5' },
                 default: false,
                 navTo: () => {
-                    _$state.go('root.detail')
+                    _$state.go('root.detail', { orderId: _$stateParams.orderId })
                 }
             },
             
@@ -52,7 +53,7 @@ export class SideNavService {
                 bgcolor: { 'background-color': '#84d8fd' },
                 default: false,
                 navTo: () => {
-                    _$state.go('root.detail')
+                    _$state.go('root.detail', { orderId: _$stateParams.orderId })
                 }
             }
         ]
