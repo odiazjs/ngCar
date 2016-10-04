@@ -18,7 +18,7 @@ _module
             // $urlRouterProvider.otherwise( '/orden-maestra' )
             // $urlRouterProvider.deferIntercept()
 
-            $urlRouterProvider.otherwise('/orden-maestra/orden/0')
+            $urlRouterProvider.otherwise('/orden-maestra/orden/0/establecimiento/0/caja/0')
 
             $stateProvider
                 .state( 'root', {
@@ -27,7 +27,7 @@ _module
                 })
 
                 .state( 'root.master', {
-                    url       : '/orden-maestra/orden/:orderId',
+                    url       : '/orden-maestra/orden/:orderId/establecimiento/:estId/caja/:cajaId',
                     template  : orderMasterTemplate,
                     controller: 'OrderMasterCtrl as ctrl'
                 })

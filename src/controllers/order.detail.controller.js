@@ -24,7 +24,9 @@ export class OrderDetailCtrl {
 
     }
 
-    areaClick (areaTitle) {
+    areaClick (ev, areaTitle) {
+
+        ev.preventDefault();
 
         this.car.component = 
             _componentFactory(_orderDetailService.getComponentByArea(areaTitle), 

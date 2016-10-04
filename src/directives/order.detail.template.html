@@ -5,11 +5,11 @@
               <img ng-src="{{ctrl.car.image.url}}" class="md-ctrl.card-image" id="{{ctrl.car.image.id}}" usemap="{{ctrl.car.image.usemap}}">
               <map name="{{ctrl.car.map.name}}">
                   <area ng-repeat="area in ctrl.car.map.areas"
-                        ng-click="ctrl.areaClick(area.title)"
+                        ng-click="ctrl.areaClick($event, area.title)"
                         alt="{{area.alt}}" 
                         name="{{area.title}}"
                         title="{{area.title}}"  
-                        ng-href="#/orden-detalle/" 
+                        ng-href="#" 
                         coords="{{area.coords}}" 
                         shape="{{area.shape}}">
               </map>

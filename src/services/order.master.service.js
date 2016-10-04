@@ -45,6 +45,11 @@ export class OrderMasterService {
         return _$http.get(url)
     }
 
+    saveOrder (json) {
+        const url = `${_httpConfig.baseUrl}${'orden_de_trabajo/apiCrear'}`
+        return _$http.post(url, json)
+    }
+
 }
 
 _module.service('orderMasterService', OrderMasterService)
