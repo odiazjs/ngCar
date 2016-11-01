@@ -129,6 +129,11 @@ export class OrderDetailService {
 
     }
     
+    saveOrder (json) {
+        const url = `${_httpConfig.baseUrl}${'/detalle_servicio_de_ot/apiCrear'}`
+        return _$http.post(url, json)
+    }
+
     @memoize
     getCategories () {
         const url = `${_httpConfig.baseUrl}${'/categoria/apiLista'}`
