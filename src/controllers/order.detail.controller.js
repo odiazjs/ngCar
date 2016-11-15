@@ -169,7 +169,7 @@ export class OrderDetailCtrl {
 
         const categoryId = component.category ? component.category.Id : undefined,
             brandId    = component.subComponent.brand.Id,
-            makeYearId = component.subComponent.makeYear.Id
+            makeYearId = '' /*component.subComponent.makeYear.Id*/
 
         _orderDetailService.getReplacements(categoryId, brandId, makeYearId).then((response) => {
             this.replacements = response.data

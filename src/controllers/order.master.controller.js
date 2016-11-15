@@ -27,6 +27,10 @@ export class OrderMasterCtrl {
         this.loadDefault()
     }
 
+    getCurrentDate () {
+        return new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+    }
+
     getCustomers () {
         _orderMasterService
             .getCustomers()
@@ -111,6 +115,7 @@ export class OrderMasterCtrl {
         this.getVehicles()
         this.getGasOptions()
         this.getEmployees()
+        this.getCurrentDate()
     }
 
 }

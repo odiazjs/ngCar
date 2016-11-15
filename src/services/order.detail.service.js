@@ -154,9 +154,9 @@ export class OrderDetailService {
         return _$http.get(url)
     }
 
-    getReplacements (categoryId = '', brandId, modelId) {
+    getReplacements (categoryId = '', brandId, makeYearId) {
         const url = `${_httpConfig.baseUrl}${'/stock_producto/apiRepuestoPrecio?'}
-            ${'categoria='}${categoryId}${'&marca='}${brandId}${'&modelo='}${''}`
+            ${'categoria='}${categoryId}${'&marca='}${brandId}`
         return _$http.get(url)
     }
 

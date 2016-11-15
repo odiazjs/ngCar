@@ -66,12 +66,22 @@
         <md-input-container>
           <label>Marca</label>
           <md-select ng-model="ctrl.car.component.subComponent.brand"
-                    ng-change="ctrl.saveData(ctrl.car); ctrl.getMakeYearByBrand(ctrl.car.component.subComponent.brand)">
+                    ng-change="ctrl.saveData(ctrl.car); ctrl.getReplacements(ctrl.car.component);">
             <md-option ng-repeat="brand in ctrl.brands" 
                       ng-value="brand">
               {{brand.Nombre}}
             </md-option>
           </md-select>
+          <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
+          </md-progress-linear>
+        </md-input-container>
+        <md-input-container>
+          <label>Repuesto Generico</label>
+          <textarea ng-model="ctrl.car.component.subComponent.genericReplacement"
+                    ng-disabled="ctrl.car.component.subComponent.replacement.Id !== '1'" 
+                    md-maxlength="100" 
+                    rows="1" 
+                    md-select-on-focus></textarea>
           <md-progress-linear md-mode="indeterminate" ng-hide="!ctrl.loading">
           </md-progress-linear>
         </md-input-container>
@@ -87,7 +97,7 @@
             </md-option>
           </md-select>
         </md-input-container>
-        <md-input-container>
+        <!--<md-input-container>
           <label>Modelo</label>
           <md-select ng-model="ctrl.car.component.subComponent.makeYear"
                     ng-change="ctrl.saveData(ctrl.car); 
@@ -97,7 +107,7 @@
               {{makeYear.Nombre}}
             </md-option>
           </md-select>
-        </md-input-container>
+        </md-input-container>-->
       </div>
   </md-content>
 
