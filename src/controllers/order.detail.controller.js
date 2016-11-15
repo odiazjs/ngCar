@@ -48,7 +48,7 @@ export class OrderDetailCtrl {
                     "TIPO"              : subComponent.damageType.id,
                     "ACCION"            : subComponent.action.id,
                     "SERVICIO"          : subComponent.category.Id,
-                    "REPUESTO_GENERICO" : subComponent.replacement.Id,
+                    "REPUESTO_GENERICO" : subComponent.genericReplacement,
                     "DETALLES"          : null,
                     "BORRADO"           :"0"
                 } ) 

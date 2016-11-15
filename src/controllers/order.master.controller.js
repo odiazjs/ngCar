@@ -12,6 +12,7 @@ export class OrderMasterCtrl {
         this.order = {
             date: new Date(),
             customer: {},
+            clientName: '',
             vehicle: {},
             gasOption: {},
             distance: 0,
@@ -81,7 +82,7 @@ export class OrderMasterCtrl {
             "ESTABLECIMIENTO":"4",
             "CAJA":"2",
             "CLIENTE": this.order.customer.ID,
-            "NOMBRE_DEL_CLIENTE":"Angel Rojas",
+            "NOMBRE_DEL_CLIENTE": this.order.clientName ,
             "VEHICULO": this.order.vehicle.ID,
             "COMBUSTIBLE": this.order.gasOption.id,
             "KM_O_MILLAS_ACTUALES": this.order.distance,

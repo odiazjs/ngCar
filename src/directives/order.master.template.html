@@ -19,6 +19,16 @@
         </div>
 
         <div layout-gt-sm="row">
+            <md-input-container class="md-block">
+            <label>Nombre del Cliente</label>
+            <textarea ng-model="ctrl.order.clientName" 
+                        md-maxlength="100" 
+                        rows="1" 
+                        md-select-on-focus></textarea>
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
           <md-input-container flex-gt-sm>
                 <label>Cliente</label>
                 <md-select ng-model="ctrl.order.customer">
