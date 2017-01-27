@@ -6,11 +6,10 @@
 
         <div layout-gt-xs="row" flex-gt-xs>
           <md-input-container>
-            <label>Fecha</label>
-            <md-datepicker ng-model="ctrl.order.date" ng-disabled="true"></md-datepicker>
-          </md-input-container>
-          <md-input-container>
-            <text>{{ctrl.getCurrentDate()}}</text>
+            <div>
+                <label>Fecha</label>
+                <p>{{ctrl.convertDate(ctrl.order.date)}}</p>
+            </div>
           </md-input-container>
         </div>
 
@@ -31,12 +30,25 @@
         <div layout-gt-sm="row">
           <md-input-container flex-gt-sm>
                 <label>Cliente</label>
-                <md-select ng-model="ctrl.order.customer">
-                    <md-option ng-repeat="customer in ctrl.customers" 
-                            ng-value="customer">
-                    {{customer.APELLIDOS_CONTACTO}} {{customer.NOMBRE}}
-                    </md-option>
-                </md-select>
+                <md-autocomplete
+                    ng-disabled="ctrl.isDisabled"
+                    md-no-cache="ctrl.noCache"
+                    md-selected-item="ctrl.selectedItem"
+                    md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                    md-search-text="ctrl.searchText"
+                    md-selected-item-change="ctrl.selectedItemChange(item)"
+                    md-items="item in ctrl.querySearch(ctrl.searchText)"
+                    md-item-text="item.NOMBRE"
+                    md-min-length="0"
+                    placeholder="Ingrese Nit o Nombre">
+                    <md-item-template>
+                        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">
+                            {{item.NOMBRE + ' ' + item.NIT}}</span>
+                    </md-item-template>
+                    <md-not-found>
+                    No hay resultados para "{{ctrl.searchText}}".
+                    </md-not-found>
+                </md-autocomplete>
             </md-input-container>
 
             <md-input-container flex-gt-sm>

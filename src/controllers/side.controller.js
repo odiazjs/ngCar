@@ -17,6 +17,8 @@ export class SideCtrl {
                     return this.optionFactory(option)
                 })
 
+        this.options[0].navTo();
+
         _$rootScope.$on('onMasterSaved:Event', (event, option) => {           
             this.onMdListClick(option)
         })

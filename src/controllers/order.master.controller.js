@@ -25,7 +25,49 @@ export class OrderMasterCtrl {
         this.gasOptions             = []
         this.employeesReceptor      = []
         this.employeesResponsable   = []
+
+        this.isDisabled    = false;
+        this.customers     = []
         this.loadDefault()
+    }
+
+    querySearch (query) {
+      var results = query ? this.customers.filter( this.createFilterFor(query) ) : this.customers;
+      return results
+    }
+
+    searchTextChange(text) {
+      //console.info('Text changed to ' + text);
+    }
+
+    selectedItemChange(item) {
+      //console.info('Item changed to ' + JSON.stringify(item));
+    }
+
+    loadAll() {
+        this.getCustomers()
+            .then((result) => {
+                if(result.status === 200) {
+                   this.customers = result.data
+                   return this.customers
+                }
+            })
+    }
+
+    createFilterFor(query) {
+      var lowercaseQuery = angular.lowercase(query);
+
+      return function filterFn(customer) {
+        return (customer.NOMBRE.toLowerCase().indexOf(lowercaseQuery) === 0) || 
+            (customer.NIT.indexOf(lowercaseQuery) === 0)
+      }
+
+    }
+
+    convertDate (date) {
+        const pad = (s) => { return (s < 10) ? '0' + s : s; }
+        var d = new Date(date);
+        return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
     }
 
     getCurrentDate () {
@@ -33,13 +75,8 @@ export class OrderMasterCtrl {
     }
 
     getCustomers () {
-        _orderMasterService
+        return _orderMasterService
             .getCustomers()
-            .then((result) => {
-                if(result.status === 200) {
-                   this.customers = result.data
-                }
-            })
     }
 
     getVehicles () {
@@ -112,7 +149,7 @@ export class OrderMasterCtrl {
     }
 
     loadDefault () {
-        this.getCustomers()
+        this.loadAll()
         this.getVehicles()
         this.getGasOptions()
         this.getEmployees()

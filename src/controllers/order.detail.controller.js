@@ -176,6 +176,10 @@ export class OrderDetailCtrl {
         })
     }
 
+    print () {
+        window.open('http://gdsgt.net/jonasa/orden_de_trabajo/reporte?ID=5', '_blank');
+    }
+
 }
 
 _module.controller('OrderDetailCtrl', OrderDetailCtrl)
